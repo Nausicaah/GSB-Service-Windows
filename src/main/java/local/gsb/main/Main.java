@@ -28,6 +28,8 @@ import java.util.TimerTask;
 public class Main {
 
     public static void main(String[] args) {
+
+
         //Délai avant activation
         long delay = 5000L;
         //Période d'activation (tous les 5 jours)
@@ -41,7 +43,7 @@ public class Main {
                     public void run() {
                         //connection mysql
                         MysqlConnection gsb_frais = new MysqlConnection("51.77.194.225", "gsb_java", "userGsb", "secret");
-
+                        //MysqlConnection.curseur();
                         System.out.println("Timer opérationnel");
 
                         //Récupération de la date actuelle
@@ -88,6 +90,4 @@ public class Main {
                     }
                 }, delay, period);
     }
-
-
 }

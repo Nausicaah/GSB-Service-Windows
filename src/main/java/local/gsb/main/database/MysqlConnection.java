@@ -1,9 +1,6 @@
 package local.gsb.main.database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 /**
  * Classe de gestion de la connexion SLQ qui
@@ -72,4 +69,25 @@ public class MysqlConnection {
             e.printStackTrace();
         }
     }
+
+    public static void curseur() {
+        //Connection Mysql
+        MysqlConnection gsb_frais = new MysqlConnection("51.77.194.225", "gsb_frais", "userGsb", "secret");
+        Statement statement = gsb_frais.executeRaw("SELECT * FROM `vehicule`");
+        try {
+            ResultSet result = statement.getResultSet();
+            if (result != null) {
+                while (result.next()) {
+                    String id = result.getString("id");
+                    String libelle = result.getString("libelle");
+                    double montant = result.getDouble("montant");
+                    System.out.println("ID = " + id + " libelle = " + libelle + " montant = " + montant);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
