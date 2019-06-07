@@ -3,6 +3,7 @@ package local.gsb.main;
 import local.gsb.main.data.DateManager;
 import local.gsb.main.database.MysqlConnection;
 
+import javax.swing.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -28,6 +29,12 @@ import java.util.TimerTask;
 public class Main {
 
     public static void main(String[] args) {
+
+        runTimer();
+
+    }
+
+    public static void runTimer(){
 
 
         //Délai avant activation
