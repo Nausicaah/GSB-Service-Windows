@@ -134,4 +134,26 @@ public abstract class DateManager {
         return (minDay < day && maxDay > day);
     }
 
+
+    public static String reqaaaamm(){
+
+        //Récupération de la date actuelle
+        LocalDateTime localTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(System.currentTimeMillis()), ZoneId.systemDefault());
+
+        //On recupère la valeur de l'annee et on la convertie en String;
+        int annee = localTime.getYear();
+
+        //Récupération du mois précédent
+        String moisPrecedent = DateManager.getMoisPrecedent();
+
+        //Changement de l'année si le mois précédent est décembre
+        if (moisPrecedent.equals("12")) {
+            annee--;
+        }
+        //On converti l'année
+        String anneeFiche = String.valueOf(annee);
+
+        return anneeFiche + moisPrecedent;
+    }
+
 }

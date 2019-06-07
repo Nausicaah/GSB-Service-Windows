@@ -1,5 +1,6 @@
 package local.gsb.main;
 
+import local.gsb.main.data.DateManager;
 import local.gsb.main.database.MysqlConnection;
 
 import javax.swing.table.AbstractTableModel;
@@ -15,13 +16,15 @@ public class MajFiches extends AbstractTableModel {
     private Map<Integer,ResultRequete> map = new HashMap<>();
 
     //création d'en tête
+    private final String[] nom = {"Fiches à mettre à jour"};
     private final String[] entetes = { "ID", "Mois"};
 
     //constructeur
     public MajFiches (){
         //Connection Mysql
         MysqlConnection gsb_frais = new MysqlConnection("51.77.194.225", "gsb_frais", "userGsb", "secret");
-        Statement statement = gsb_frais.executeRaw("SELECT idvisiteur, mois FROM `fichefrais`");
+
+        Statement statement = gsb_frais.executeRaw("SELECT idvisiteur, mois FROM `fichefrais` WHERE mois = \"" + DateManager.reqaaaamm() + "\"");
         try {
             ResultSet result = statement.getResultSet();
             if (result != null) {
@@ -38,7 +41,6 @@ public class MajFiches extends AbstractTableModel {
             e.printStackTrace();
         }
     }
-
 
     @Override
     public int getRowCount() {
