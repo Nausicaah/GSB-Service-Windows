@@ -5,13 +5,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Test extends JFrame {
+public class App extends JFrame {
     private JPanel panel1;
     private JTable table1;
     private JList list1;
     private JButton button;
 
-    public Test() {
+    public App() {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -22,13 +22,13 @@ public class Test extends JFrame {
 
 
     public static void main(String[] args) {
-        Test test = new Test();
+        App app = new App();
         MajFiches fichefrais = new MajFiches();
-        test.table1 = new JTable(fichefrais);
-        test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        test.getContentPane().add(test.button, BorderLayout.NORTH);
-        test.getContentPane().add(new JScrollPane(test.table1), BorderLayout.SOUTH);
-        test.pack();
-        test.setVisible(true);
+        app.table1 = new JTable(fichefrais);
+        app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        app.getContentPane().add(app.button, BorderLayout.NORTH);
+        app.getContentPane().add(new JScrollPane(app.table1), BorderLayout.SOUTH);
+        app.pack();
+        app.setVisible(true);
     }
 }
