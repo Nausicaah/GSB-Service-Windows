@@ -22,7 +22,7 @@ public class MajFiches extends AbstractTableModel {
     //constructeur
     public MajFiches (){
         //Connection Mysql
-        MysqlConnection gsb_frais = new MysqlConnection("51.77.194.225", "gsb_java2", "userGsb", "secret");
+        MysqlConnection gsb_frais = MysqlConnection.condb();
 
         Statement statement = gsb_frais.executeRaw("SELECT idvisiteur, mois FROM `fichefrais` WHERE mois = \"" + DateManager.reqaaaamm() + "\"");
         try {

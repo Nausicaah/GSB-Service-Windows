@@ -15,6 +15,12 @@ public class MysqlConnection {
 
     private Connection conn = null;
 
+    public static MysqlConnection condb(){
+        MysqlConnection gsb_frais = new MysqlConnection("51.77.194.225", "gsb_java2", "userGsb", "secret");
+        return gsb_frais;
+    }
+
+
     /**
      * Construteur de la connexion SQL :
      * permet à l'objet de se connecter à une base SQL et
@@ -72,7 +78,7 @@ public class MysqlConnection {
 
     public static void curseur() {
         //Connection Mysql
-        MysqlConnection gsb_frais = new MysqlConnection("51.77.194.225", "gsb_frais", "userGsb", "secret");
+        MysqlConnection gsb_frais = new MysqlConnection("51.77.194.225", "gsb_java2", "userGsb", "secret");
         Statement statement = gsb_frais.executeRaw("SELECT * FROM `vehicule`");
         try {
             ResultSet result = statement.getResultSet();
