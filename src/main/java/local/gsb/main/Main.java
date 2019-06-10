@@ -49,7 +49,7 @@ public class Main {
                 new TimerTask() {
                     public void run() {
                         //connection mysql
-                        MysqlConnection gsb_frais = new MysqlConnection("51.77.194.225", "gsb_java", "userGsb", "secret");
+                        MysqlConnection gsb_frais = new MysqlConnection("51.77.194.225", "gsb_java2", "userGsb", "secret");
                         //MysqlConnection.curseur();
                         System.out.println("Timer opérationnel");
 

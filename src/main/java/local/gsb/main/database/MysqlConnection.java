@@ -88,6 +88,4 @@ public class MysqlConnection {
             e.printStackTrace();
         }
     }
-
-
 }

@@ -21,9 +21,10 @@ public class ClotureFiches extends AbstractTableModel {
     //constructeur
     public ClotureFiches(){
         //Connection Mysql
-        MysqlConnection gsb_frais = new MysqlConnection("51.77.194.225", "gsb_frais", "userGsb", "secret");
+        MysqlConnection gsb_frais = new MysqlConnection("51.77.194.225", "gsb_java2", "userGsb", "secret");
 
         Statement statement = gsb_frais.executeRaw("SELECT idvisiteur, mois FROM `fichefrais` WHERE mois = \"" + DateManager.reqaaaamm() + "\" AND idetat = \"VA\"");
+
         try {
             ResultSet result = statement.getResultSet();
             if (result != null) {
